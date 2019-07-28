@@ -35,12 +35,12 @@ android_library(
 
 android_build_config(
     name = "build_config",
-    package = "com.cookdinner",
+    package = "com.cookdinnerapp",
 )
 
 android_resource(
     name = "res",
-    package = "com.cookdinner",
+    package = "com.cookdinnerapp",
     res = "src/main/res",
 )
 

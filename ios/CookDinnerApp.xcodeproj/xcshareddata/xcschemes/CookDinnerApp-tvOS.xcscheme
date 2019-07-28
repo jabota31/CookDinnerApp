@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-               BuildableName = "CookDinner-tvOS.app"
-               BlueprintName = "CookDinner-tvOS"
-               ReferencedContainer = "container:CookDinner.xcodeproj">
+               BuildableName = "CookDinnerApp-tvOS.app"
+               BlueprintName = "CookDinnerApp-tvOS"
+               ReferencedContainer = "container:CookDinnerApp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -43,9 +43,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E48F1E0B4A5D006451C7"
-               BuildableName = "CookDinner-tvOSTests.xctest"
-               BlueprintName = "CookDinner-tvOSTests"
-               ReferencedContainer = "container:CookDinner.xcodeproj">
+               BuildableName = "CookDinnerApp-tvOSTests.xctest"
+               BlueprintName = "CookDinnerApp-tvOSTests"
+               ReferencedContainer = "container:CookDinnerApp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -61,9 +61,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E48F1E0B4A5D006451C7"
-               BuildableName = "CookDinner-tvOSTests.xctest"
-               BlueprintName = "CookDinner-tvOSTests"
-               ReferencedContainer = "container:CookDinner.xcodeproj">
+               BuildableName = "CookDinnerApp-tvOSTests.xctest"
+               BlueprintName = "CookDinnerApp-tvOSTests"
+               ReferencedContainer = "container:CookDinnerApp.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -71,9 +71,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "CookDinner-tvOS.app"
-            BlueprintName = "CookDinner-tvOS"
-            ReferencedContainer = "container:CookDinner.xcodeproj">
+            BuildableName = "CookDinnerApp-tvOS.app"
+            BlueprintName = "CookDinnerApp-tvOS"
+            ReferencedContainer = "container:CookDinnerApp.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -94,9 +94,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "CookDinner-tvOS.app"
-            BlueprintName = "CookDinner-tvOS"
-            ReferencedContainer = "container:CookDinner.xcodeproj">
+            BuildableName = "CookDinnerApp-tvOS.app"
+            BlueprintName = "CookDinnerApp-tvOS"
+            ReferencedContainer = "container:CookDinnerApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -113,9 +113,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "CookDinner-tvOS.app"
-            BlueprintName = "CookDinner-tvOS"
-            ReferencedContainer = "container:CookDinner.xcodeproj">
+            BuildableName = "CookDinnerApp-tvOS.app"
+            BlueprintName = "CookDinnerApp-tvOS"
+            ReferencedContainer = "container:CookDinnerApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
