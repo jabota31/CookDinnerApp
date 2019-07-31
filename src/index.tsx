@@ -22,6 +22,7 @@ const AuthStack = createStackNavigator(
 );
 
 //Main App Stack which contains all logged in areas
+/*
 const AppStack = createStackNavigator(
 	{
 
@@ -29,11 +30,11 @@ const AppStack = createStackNavigator(
 	{
 	}
 );
+*/
 
 const RootStack = createSwitchNavigator(
 	{
 		Auth: AuthStack,
-		App: AppStack,
 	},
 	{
 		initialRouteName: 'Auth'
