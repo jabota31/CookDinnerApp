@@ -1,48 +1,36 @@
-import React, { Component } from 'react';
-import { Text, View, Button } from 'react-native';
+import React, { useState, useEffect } from 'react';
 
-import { Translation } from '../../util/types';
-import langs from './lang';
-import { languageSelect } from '../../util/getLanguage';
+import { Container, LoadingIndicator } from './styles';
+import Logo from './components/logo';
+import { login } from '../../services/cookdinnerapi';
+import getText from '../../util/getText';
 
-export default class AuthScreen extends Component {
-	text: Translation;
-	lang: string;
 
-	constructor(props: any){
-		super(props); 
-		this.text = {
-			test: '',
-			change: ''
-		};
-		this.lang = 'pt';
-		this.getLang();
-	}
+export function navigationOptions({ navigation }: any) {
+	return {
+		header: null
+	};
+}
 
-	getLang = () => {
-		this.text = languageSelect(langs, this.lang);
-		this.setState({});
-	}
+export default function Auth() {
+	let [loading, setLoading] = useState(false);
+	let [text, setText] = useState(getText('auth'));
+	
+	useEffect(() => {
+		loading = true;
+		login('', '').then(response => {
 
-	changeLanguage = ()  => {
-		if (this.lang == 'pt') this.lang = 'en';
-		else if (this.lang == 'en') this.lang = 'pt';
-		this.getLang();
-	}
+		});
+	}, []);
 
-	render() {
-		let text = this.text;
-		return (
-			<View>
-				<Text>{text.test}</Text>
-				<Button
-					title={text.change}
-					onPress={this.changeLanguage}>
-					<Text>
-						{text.change}
-					</Text>
-				</Button>
-			</View>
-		);
-	}
+	useEffect(() => {
+		setText(getText('auth'));
+	}, []);
+
+	return (
+		<Container>
+			<Logo />
+			{ loading ? <LoadingIndicator /> : null }
+		</Container>
+	);
 }
