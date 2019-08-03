@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 
-import { Container, LoadingIndicator } from './styles';
+import { Indicator, Container, NoAccountButton, NoAccountText } from './styles';
 import Logo from './components/logo';
-import { login } from '../../services/cookdinnerapi';
+import { login } from '../../services/cookDinnerApi';
 import getText from '../../util/getText';
+import Login from './components/login';
+import { Keyboard } from 'react-native';
 
 
 export function navigationOptions({ navigation }: any) {
@@ -15,22 +17,44 @@ export function navigationOptions({ navigation }: any) {
 export default function Auth() {
 	let [loading, setLoading] = useState(false);
 	let [text, setText] = useState(getText('auth'));
-	
-	useEffect(() => {
-		loading = true;
-		login('', '').then(response => {
 
-		});
+	//keyboard listening
+	let keyboardIsShown = false;
+	let showListener: any;
+	let hideListener: any; 
+	useEffect(() => {
+		showListener = Keyboard.addListener('keyboardWillShow', () => { keyboardIsShown = true; });
+		hideListener = Keyboard.addListener('keyboardDidHide', () => { keyboardIsShown = false; });
+		return () => {
+			showListener.remove();
+			hideListener.remove();
+		};
 	}, []);
 
-	useEffect(() => {
-		setText(getText('auth'));
-	}, []);
+	async function validate(user: string, pass: string) {
+		setLoading(true);
+		let response = await login(user, pass);
+		setLoading(false);
+		return response;
+	}
+
+	function openRegister() {
+		//TODO: animate to register
+		console.error('openRegister(): Not Implemented Error');
+	}
 
 	return (
 		<Container>
-			<Logo />
-			{ loading ? <LoadingIndicator /> : null }
+			{keyboardIsShown ? null : <Logo />}
+			{loading ? <Indicator /> : null}
+
+			<Login
+				send={validate}
+			/>
+
+			<NoAccountButton onPress={openRegister}>
+				<NoAccountText>Não possui uma conta?</NoAccountText>
+			</NoAccountButton>
 		</Container>
 	);
 }

@@ -1,36 +1,17 @@
 import { createActions, createReducer } from 'reduxsauce';
-import { AsyncStorage } from 'react-native';
 
+import { saveState, loadState } from '../../util/statePersist';
 import I18n from '../../i18n';
+import { ConfigState } from './types';
 
-const defaultConfig = {
+const defaultState: ConfigState = {
 	lang: 'en',
 	darkMode: false,
 };
 
-async function saveCfg(state: any) {
-	try {
-		AsyncStorage.setItem('config', JSON.stringify(state));
-	} catch (err) {
-		console.log(err);
-	}
-}
-
-async function loadCfg(): Promise<any> {
-	let state = {};
-	try {
-		let json = await AsyncStorage.getItem('config');
-		if (json !== null) state = JSON.parse(json);
-		else throw Error;
-	} catch (err) {
-		console.log(err);
-	}
-	return state;
-}
-
 //load initial state from local storage
-let INITIAL_STATE: any = defaultConfig;
-loadCfg().then(cfg => {
+let INITIAL_STATE: ConfigState = defaultState;
+loadState('config', defaultState).then(cfg => {
 	INITIAL_STATE = cfg;
 });
 
@@ -43,20 +24,20 @@ const changeLang = (state = INITIAL_STATE, action: any) => {
 	else lang = 'en';
 	state = { ...state, lang };
 	I18n.locale = lang;
-	saveCfg(state);
+	saveState('config', state);
 	return state;
 };
 
 const toggleDarkmode = (state = INITIAL_STATE, action: any) => {
-	state = { ...state, darkMode: !state.config.darkMode };
-	saveCfg(state);
+	state = { ...state, darkMode: !state.darkMode };
+	saveState('config', state);
 	return state;
 };
 
 //action types & creators
 export const { Types, Creators } = createActions({
-	changeLang: [],
-	toggleDarkmode: []
+	changeLang: null,
+	toggleDarkmode: null
 });
 
 //reducer

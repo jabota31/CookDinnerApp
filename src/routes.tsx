@@ -45,10 +45,10 @@ const AppStack = createStackNavigator(
 const RootStack = createSwitchNavigator(
 	{
 		authFlow: AuthStack,
-		App: AppStack,
+		app: AppStack,
 	},
 	{
-		initialRouteName: 'App'
+		initialRouteName: 'authFlow'
 	}
 );
 

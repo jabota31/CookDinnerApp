@@ -1,12 +1,17 @@
 import React from 'react';
-import { Container, LogoImage } from './styles';
+import { Animated } from 'react-native';
+
+import { Container, LogoImage, LogoText } from './styles';
 
 export default function Logo() {
 	return (
 		<Container>
 			<LogoImage
-				source={require('../../../../assets/logo.png')}
+				source={require('../../../../assets/logo-white.png')}
 			/>
+			<LogoText>
+				Cook Dinner
+			</LogoText>
 		</Container>	
 	);
 }

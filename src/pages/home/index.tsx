@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Text, View, Button } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
+
 import getText from '../../util/getText';
 
-export function navigationOptions({ navigation }) {
+export function navigationOptions({ navigation }: any) {
 	return {
 		header: null
 	};
