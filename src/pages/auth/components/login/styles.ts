@@ -37,9 +37,3 @@ export const LoginButton = styled.TouchableOpacity`
 	margin-top: 20;
 	margin-bottom: 30;
 `;
-
-export const Indicator = styled.ActivityIndicator`
-    align-self: center;
-	z-index: 2;
-	position: absolute;
-`;

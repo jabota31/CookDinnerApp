@@ -25,6 +25,7 @@ const toggleRemindme = (state = INITIAL_STATE, action: any) => {
 const deleteToken = (state = INITIAL_STATE, action: any) => {
 	state = { ...state, token: '' };
 	saveState('auth', state);
+	setApiToken('');
 	return state;	
 };
 

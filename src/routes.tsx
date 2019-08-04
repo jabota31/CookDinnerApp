@@ -6,8 +6,9 @@ import {
 } from 'react-navigation';
 import { Provider } from 'react-redux';
 
-import Auth, { navigationOptions as authOptions } from './pages/auth';
+import Auth from './pages/auth';
 import Home, { navigationOptions as homeOptions } from './pages/home';
+import Register, { navigationOptions as registerOptions } from './pages/register';
 import store from './store';
 
 
@@ -19,13 +20,17 @@ import store from './store';
 //Authentication Stack separate to block back button logout
 const AuthStack = createStackNavigator(
 	{
-		auth: {
-			screen: Auth,
-			navigationOptions: authOptions
-		},
+		auth: Auth,
+		register: {
+			screen: Register,
+			navigationOptions: registerOptions
+		}
 	},
 	{
-		initialRouteName: 'auth'
+		initialRouteName: 'auth',
+		defaultNavigationOptions: {
+			header: null,
+		},
 	}
 );
 
@@ -39,6 +44,9 @@ const AppStack = createStackNavigator(
 	},
 	{
 		initialRouteName: 'home',
+		defaultNavigationOptions: {
+			header: null,
+		},
 	}
 );
 

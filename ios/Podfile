@@ -30,11 +30,8 @@ target 'CookDinnerApp' do
 
 
 
-  pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
 
-  pod 'RNSha256', :path => '../node_modules/react-native-sha256'
 
-  pod 'RNI18n', :path => '../node_modules/react-native-i18n'
 
   target 'CookDinnerAppTests' do
     inherit! :search_paths

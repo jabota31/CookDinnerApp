@@ -5,10 +5,15 @@ import {
 	LoginButtonText,
 	LoginButton,
 } from './styles';
-import { Keyboard, Animated } from 'react-native';
+import { Keyboard } from 'react-native';
 
 interface Props {
 	send(user: string, pass: string): Promise<Object>;
+	text: {
+		email: string;
+		password: string;
+		login: string;
+	}
 }
 
 export default function Login(props: Props) {
@@ -20,7 +25,7 @@ export default function Login(props: Props) {
 	return (
 		<Container>
 			<TextBox
-				placeholder="Usuário"
+				placeholder={props.text.email}
 				onChangeText={text => setUser(text)}
 				returnKeyType="next"
 				autoCapitalize="none"
@@ -33,7 +38,7 @@ export default function Login(props: Props) {
 			/>
 
 			<TextBox
-				placeholder="Senha"
+				placeholder={props.text.password}
 				onChangeText={text => setPass(text)}
 				value={pass}
 				secureTextEntry={true}
@@ -55,7 +60,7 @@ export default function Login(props: Props) {
 				}}
 			>
 				<LoginButtonText>
-						Login
+					{props.text.login}
 				</LoginButtonText>
 			</LoginButton>
 		</Container>

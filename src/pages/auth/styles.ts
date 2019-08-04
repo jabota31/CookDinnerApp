@@ -1,9 +1,12 @@
 import styled from 'styled-components/native';
 
-export const Container = styled.KeyboardAvoidingView`
+export const Container = styled.SafeAreaView`
+	flex: 1;
+`;
+
+export const Content = styled.KeyboardAvoidingView`
 	flex: 1;
 	justify-content: flex-end;
-	
 `;
 
 export const NoAccountButton = styled.TouchableOpacity`
