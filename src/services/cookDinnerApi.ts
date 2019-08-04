@@ -10,6 +10,7 @@ const api = axios.create({
 
 
 export async function login(username: string, password: string): Promise<boolean>{
+	//FIXME: login request
 	let sha = sha256(password);
 	try {
 		let response = await api.post('login', {
@@ -28,7 +29,8 @@ export function setApiToken(token: string) {
 	api.defaults.headers['Authorization'] = `Bearer ${token}`;
 }
 
-export async function register(name:string, email: string, password: string) {
+export async function register(name: string, email: string, password: string) {
+	//FIXME: register request
 	let sha = sha256(password);
 	try {
 		let response = await api.post('sign_in', {

@@ -1,3 +1,4 @@
+//TODO: jp language pack
 export default {
 	home: {
 		helloWorld: 'こんにちは世界！',

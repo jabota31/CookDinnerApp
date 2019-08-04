@@ -8,6 +8,7 @@ import { choosePic, takePic } from '../../util/getImage';
 
 let title = 'Create an account';
 export const navigationOptions = () => ({
+	//TODO: configure header baar
 	title,
 });
 
