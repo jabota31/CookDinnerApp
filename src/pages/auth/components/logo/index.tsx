@@ -7,7 +7,7 @@ export default function Logo() {
 	return (
 		<Container>
 			<LogoImage
-				source={require('../../../../assets/logo-white.png')}
+				source={require('../../../../assets/logo-circle.png')}
 			/>
 			<LogoText>
 				Cook Dinner

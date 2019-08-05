@@ -193,7 +193,7 @@
 			dependencies = (
 			);
 			name = CookDinnerApp;
-			productName = "CookDinnerApp";
+			productName = "Cook Dinner";
 			productReference = 13B07F961A680F5B00A75B9A /* CookDinnerApp.app */;
 			productType = "com.apple.product-type.application";
 		};

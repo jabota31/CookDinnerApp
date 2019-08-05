@@ -10,6 +10,7 @@ import Auth from './pages/auth';
 import Home, { navigationOptions as homeOptions } from './pages/home';
 import Register, { navigationOptions as registerOptions } from './pages/register';
 import store from './store';
+import { StatusBar } from 'react-native';
 
 
 /*
@@ -65,6 +66,10 @@ let Navigation = createAppContainer(RootStack);
 export default function App() {
 	return (
 		<Provider store={store}>
+			<StatusBar
+				barStyle='light-content'
+				backgroundColor={'#00ab9d'}
+			/>
 			<Navigation />
 		</Provider>
 	);

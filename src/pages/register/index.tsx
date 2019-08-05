@@ -56,7 +56,7 @@ export default function Register() {
 				{state.loading ? <Indicator /> : null}
 				<AvatarContainer onPress={showPicker}>
 					<AvatarCircle
-						source={image ? image : require('../../assets/logo.png')}
+						source={image ? image : require('../../assets/logo-circle.png')}
 					/>
 				</AvatarContainer>
 			
