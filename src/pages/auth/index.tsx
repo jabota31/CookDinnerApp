@@ -1,25 +1,25 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react'
 
-import { Indicator, Container, NoAccountButton, NoAccountText, Content } from './styles';
-import Logo from './components/logo';
-import { login } from '../../services/cookDinnerApi';
-import getText from '../../util/getText';
-import Login from './components/login';
+import { Indicator, Container, NoAccountButton, NoAccountText, Content } from './styles'
+import Logo from './components/logo'
+import { login } from '../../services/cookDinnerApi'
+import getText from '../../util/getText'
+import Login from './components/login'
 
-export default function Auth(props: any) {
-	let [loading, setLoading] = useState(false);
-	let [text, setText] = useState(getText('auth'));
+export default function Auth (props: any): React.ReactElement {
+	const [loading, setLoading] = useState(false)
+	const [text, setText] = useState(getText('auth'))
 
-	async function send(user: string, pass: string) {
-		setLoading(true);
-		let response = await login(user, pass);
-		setLoading(false);
-		return response;
+	async function send (user: string, pass: string): Promise<any> {
+		setLoading(true)
+		const response = await login(user, pass)
+		setLoading(false)
+		return response
 	}
 
-	function openRegister() {
-		//TODO: animate to register
-		props.navigation.navigate('register');
+	function openRegister (): void {
+		// TODO: animate to register
+		props.navigation.navigate('register')
 	}
 
 	return (
@@ -38,5 +38,5 @@ export default function Auth(props: any) {
 				</NoAccountButton>
 			</Content>
 		</Container>
-	);
+	)
 }

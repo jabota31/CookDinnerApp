@@ -1,9 +1,8 @@
-import React from 'react';
-import { Animated } from 'react-native';
+import React from 'react'
 
-import { Container, LogoImage, LogoText } from './styles';
+import { Container, LogoImage, LogoText } from './styles'
 
-export default function Logo() {
+export default function Logo (): React.ReactElement {
 	return (
 		<Container>
 			<LogoImage
@@ -12,6 +11,6 @@ export default function Logo() {
 			<LogoText>
 				Cook Dinner
 			</LogoText>
-		</Container>	
-	);
+		</Container>
+	)
 }
