@@ -7,8 +7,9 @@ module.exports = {
   plugins: ['@typescript-eslint'],
 	extends: [
 	  'plugin:@typescript-eslint/recommended',
-		'standard',
-		'standard-react'
+	  'prettier/@typescript-eslint',
+	  'standard-react',
+	  'standard'
   ],
   globals: {
     Atomics: 'readonly',

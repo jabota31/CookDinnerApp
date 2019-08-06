@@ -1,24 +1,24 @@
-import React from 'react';
+import React from 'react'
 import {
 	createStackNavigator,
 	createSwitchNavigator,
 	createAppContainer
-} from 'react-navigation';
-import { Provider } from 'react-redux';
+} from 'react-navigation'
+import { Provider } from 'react-redux'
 
-import Auth from './pages/auth';
-import Home, { navigationOptions as homeOptions } from './pages/home';
-import Register, { navigationOptions as registerOptions } from './pages/register';
-import store from './store';
-import { StatusBar } from 'react-native';
-
+import Auth from './pages/auth'
+import Home, { navigationOptions as homeOptions } from './pages/home'
+import Register, { navigationOptions as registerOptions } from './pages/register'
+import store from './store'
+import { StatusBar } from 'react-native'
 
 /*
 	Specifies Routes for the App
 	Imports all pages to be handled by React Navigation lib
 */
 
-//Authentication Stack separate to block back button logout
+// Authentication Stack separate to block back button logout
+
 const AuthStack = createStackNavigator(
 	{
 		auth: Auth,
@@ -30,40 +30,40 @@ const AuthStack = createStackNavigator(
 	{
 		initialRouteName: 'auth',
 		defaultNavigationOptions: {
-			header: null,
-		},
+			header: null
+		}
 	}
-);
+)
 
-//Main App Stack which contains all logged in areas
+// Main App Stack which contains all logged in areas
 const AppStack = createStackNavigator(
 	{
 		home: {
 			screen: Home,
 			navigationOptions: homeOptions
-		},
+		}
 	},
 	{
 		initialRouteName: 'home',
 		defaultNavigationOptions: {
-			header: null,
-		},
+			header: null
+		}
 	}
-);
+)
 
 const RootStack = createSwitchNavigator(
 	{
 		authFlow: AuthStack,
-		app: AppStack,
+		app: AppStack
 	},
 	{
 		initialRouteName: 'authFlow'
 	}
-);
+)
 
-let Navigation = createAppContainer(RootStack);
+const Navigation = createAppContainer(RootStack)
 
-export default function App() {
+export default function App (): React.ReactElement {
 	return (
 		<Provider store={store}>
 			<StatusBar
@@ -72,5 +72,5 @@ export default function App() {
 			/>
 			<Navigation />
 		</Provider>
-	);
+	)
 }
