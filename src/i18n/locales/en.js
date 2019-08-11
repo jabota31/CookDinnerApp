@@ -7,7 +7,7 @@ export default {
 		email: 'Email',
 		password: 'Password',
 		login: 'Login',
-		noAccount: "Don't have an account?"
+		noAccount: "Don't have an account?",
 	},
 	register: {
 		email: 'Email',
@@ -15,7 +15,7 @@ export default {
 		register: 'Sign Up',
 		confirmPassword: 'Confirm Password',
 		name: 'Name',
-		createACcount: 'Create an account'
+		createACcount: 'Create an account',
 	},
 	registerCheck: {
 		fieldRequired: 'This field is required',
@@ -26,5 +26,5 @@ export default {
 		emailInvalid: 'Invalid email',
 		emailTaken: 'Email already taken',
 
-	}
+	},
 };

@@ -9,7 +9,7 @@ I18n.fallbacks = true;
 I18n.translations = {
 	en,
 	pt,
-	jp
+	jp,
 };
 
 I18n.defaultLocale = 'en-US';

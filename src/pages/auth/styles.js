@@ -13,7 +13,7 @@ export const NoAccountButton = styled.TouchableOpacity`
 	align-self: flex-end;
     padding-bottom: 15;
     padding-top: 15;
-    background-color: #00897b;
+    background-color: #007d6f;
     width: 100%;
     justify-content: center;
 `;

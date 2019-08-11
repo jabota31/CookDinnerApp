@@ -10,7 +10,7 @@ export const Content = styled.KeyboardAvoidingView`
 	justify-content: center;
 	align-items: center;
 	align-content: space-between;
-	background-color: #00ab9d;
+	background-color: #00ad9f;
 `;
 
 export const Indicator = styled.ActivityIndicator`
@@ -26,7 +26,7 @@ export const TextBox = styled.TextInput`
     width: 75%;
 	height: 45;
     text-align: center;
-    border-color: #00ab9d;
+    border-color: #00ad9f;
     border-width: 2;
     border-radius: 20;
 `;
@@ -63,7 +63,7 @@ export const RegisterButton = styled.TouchableOpacity`
     border-color: #fff;
     border-width: 1;
     border-radius: 20;
-    background-color: #00ab9d;
+    background-color: #00ad9f;
     justify-content: center;
     align-self: center;
 	margin-top: 20;

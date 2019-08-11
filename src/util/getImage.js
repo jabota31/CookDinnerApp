@@ -1,10 +1,10 @@
 import Picker from 'react-native-image-crop-picker';
 import getText from './getText';
 
-let text = getText('crop');
+const text = getText('crop');
 
 export async function choosePic(circle = false) {
-	return await Picker.openPicker({
+	return Picker.openPicker({
 		cropping: true,
 		cropperCancelText: text.cancel,
 		cropperChooseText: text.choose,
@@ -16,14 +16,14 @@ export async function choosePic(circle = false) {
 		compressImageMaxWidth: 1000,
 		cropperCircleOverlay: circle,
 		cropperToolbarTitle: text.crop,
-		cropperToolbarColor: '#00ab9d',
-		cropperStatusBarColor: '#00ab9d',
-		cropperActiveWidgetColor: '#00ab9d'
+		cropperToolbarColor: '#00ad9f',
+		cropperStatusBarColor: '#00ad9f',
+		cropperActiveWidgetColor: '#00ad9f',
 	});
 }
 
 export async function takePic(circle = false) {
-	return await Picker.openPicker({
+	return Picker.openPicker({
 		cropping: true,
 		cropperCancelText: text.cancel,
 		cropperChooseText: text.choose,
@@ -36,8 +36,8 @@ export async function takePic(circle = false) {
 		useFrontCamera: true,
 		cropperCircleOverlay: circle,
 		cropperToolbarTitle: text.crop,
-		cropperToolbarColor: '#00ab9d',
-		cropperStatusBarColor: '#00ab9d',
-		cropperActiveWidgetColor: '#00ab9d'
+		cropperToolbarColor: '#00ad9f',
+		cropperStatusBarColor: '#00ad9f',
+		cropperActiveWidgetColor: '#00ad9f',
 	});
 }

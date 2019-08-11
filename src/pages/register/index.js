@@ -1,24 +1,37 @@
-import React, { useState, useEffect } from 'react'; 
+import React, { useState } from 'react';
+
 
 import checkCredentials from '../../util/checkCredentials';
 import { register } from '../../services/cookDinnerApi';
-import { Container, Content, TextBox, AvatarContainer, AvatarCircle, UnderText, RegisterButton, RegisterButtonText, Indicator } from './styles';
+import {
+	Container,
+	Content,
+	TextBox,
+	AvatarContainer,
+	AvatarCircle,
+	UnderText,
+	RegisterButton,
+	RegisterButtonText,
+	Indicator,
+} from './styles';
 import getText from '../../util/getText';
-import { choosePic, takePic } from '../../util/getImage';
+import defaultImage from '../../assets/logo-circle.png';
+// import { choosePic, takePic } from '../../util/getImage';
 
 let title = 'Create an account';
 export const navigationOptions = () => ({
-	//TODO: configure header baar
+	// TODO: configure header baar
 	title,
 });
 
 export default function Register() {
-	//Component variables 
-	let emailInput: any, passInput: any, confirmPassInput: any;
-	let [text, setText] = useState(getText('register'));
-	let [image, setImage] = useState(null);
+	// Component variables
+	let emailInput; let passInput; let
+		confirmPassInput;
+	const [text, setText] = useState(getText('register'));
+	const [image, setImage] = useState(null);
 	title = text.createAccount;
-	let [state, setState] = useState({
+	const [state, setState] = useState({
 		email: '',
 		name: '',
 		pass: '',
@@ -28,25 +41,25 @@ export default function Register() {
 			email: '',
 			name: '',
 			pass: '',
-			confirmPass: ''
-		}
+			confirmPass: '',
+		},
 	});
 
 	async function send() {
-		setState({ ...state, loading: true });	
-		let under = checkCredentials(state.name, state.email, state.pass, state.confirmPass);
+		setState({ ...state, loading: true });
+		const under = checkCredentials(state.name, state.email, state.pass, state.confirmPass);
 		if (!under.email && !under.name && !under.pass && !under.confirmPass) {
 			if (register(state.name, state.email, state.pass)) {
-				//TODO: navigate to home	
+				// TODO: navigate to home
 			} else {
-				//TODO: handle connection error
+				// TODO: handle connection error
 			}
 		}
 		setState({ ...state, loading: false, under });
 	}
-	
+
 	function showPicker() {
-		//TODO: show options
+		// TODO: show options
 		// handle image
 	}
 
@@ -56,13 +69,13 @@ export default function Register() {
 				{state.loading ? <Indicator /> : null}
 				<AvatarContainer onPress={showPicker}>
 					<AvatarCircle
-						source={image ? image : require('../../assets/logo-circle.png')}
+						source={image || defaultImage}
 					/>
 				</AvatarContainer>
-			
+
 				<TextBox
 					placeholder={text.name}
-					onChangeText={name => setState({ ...state, name })}
+					onChangeText={(name) => setState({ ...state, name })}
 					returnKeyType="next"
 					autoCapitalize="none"
 					value={state.name}
@@ -71,14 +84,15 @@ export default function Register() {
 						emailInput.focus();
 					}}
 					blurOnSubmit={false}
-					style={state.under.name ? { color: '#f22', borderColor: '#f22'}: {}} />
+					style={state.under.name ? { color: '#f22', borderColor: '#f22' } : {}}
+				/>
 				<UnderText>
 					{state.under.name}
 				</UnderText>
 
 				<TextBox
 					placeholder={text.email}
-					onChangeText={email => setState({ ...state, email })}
+					onChangeText={(email) => setState({ ...state, email })}
 					returnKeyType="next"
 					autoCapitalize="none"
 					value={state.email}
@@ -86,47 +100,50 @@ export default function Register() {
 					onSubmitEditing={() => {
 						passInput.focus();
 					}}
-					ref={input => {
+					ref={(input) => {
 						emailInput = input;
 					}}
 					blurOnSubmit={false}
-					style={state.under.email ? { color: '#f22', borderColor: '#f22'}: {}} />
+					style={state.under.email ? { color: '#f22', borderColor: '#f22' } : {}}
+				/>
 				<UnderText>
 					{state.under.email}
 				</UnderText>
 
 				<TextBox
 					placeholder={text.password}
-					onChangeText={pass => setState({ ...state, pass })}
+					onChangeText={(pass) => setState({ ...state, pass })}
 					value={state.pass}
-					secureTextEntry={true}
+					secureTextEntry
 					returnKeyType="send"
 					autoCapitalize="none"
 					autoCorrect={false}
-					ref={input => {
+					ref={(input) => {
 						passInput = input;
 					}}
 					onSubmitEditing={() => {
 						confirmPassInput.focus();
 					}}
-					style={state.under.pass ? { color: '#f22', borderColor: '#f22'}: {}} />
+					style={state.under.pass ? { color: '#f22', borderColor: '#f22' } : {}}
+				/>
 				<UnderText>
 					{state.under.pass}
 				</UnderText>
 
 				<TextBox
 					placeholder={text.confirmPassword}
-					onChangeText={confirmPass => setState({ ...state, confirmPass })}
+					onChangeText={(confirmPass) => setState({ ...state, confirmPass })}
 					value={state.confirmPass}
-					secureTextEntry={true}
+					secureTextEntry
 					returnKeyType="send"
 					autoCapitalize="none"
 					autoCorrect={false}
-					ref={input => {
+					ref={(input) => {
 						passInput = input;
 					}}
 					onSubmitEditing={send}
-					style={state.under.confirmPass ? { color: '#f22', borderColor: '#f22'}: {}} />
+					style={state.under.confirmPass ? { color: '#f22', borderColor: '#f22' } : {}}
+				/>
 				<UnderText>
 					{state.under.confirmPass}
 				</UnderText>

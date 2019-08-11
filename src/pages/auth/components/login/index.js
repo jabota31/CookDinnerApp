@@ -1,32 +1,24 @@
 import React, { useState } from 'react';
+import { Keyboard } from 'react-native';
+import PropTypes from 'prop-types';
+
 import {
 	Container,
 	TextBox,
 	LoginButtonText,
 	LoginButton,
 } from './styles';
-import { Keyboard } from 'react-native';
 
-interface Props {
-	send(user: string, pass: string): Promise<Object>;
-	text: {
-		email: string;
-		password: string;
-		login: string;
-	}
-}
-
-export default function Login(props: Props) {
-	let [user, setUser] = useState('');
-	let [pass, setPass] = useState('');
+export default function Login({ text, send }) {
+	const [user, setUser] = useState('');
+	const [pass, setPass] = useState('');
 	let passInput: any;
-	let send = props.send;
 
 	return (
 		<Container>
 			<TextBox
-				placeholder={props.text.email}
-				onChangeText={text => setUser(text)}
+				placeholder={text.email}
+				onChangeText={(value) => setUser(value)}
 				returnKeyType="next"
 				autoCapitalize="none"
 				value={user}
@@ -38,14 +30,14 @@ export default function Login(props: Props) {
 			/>
 
 			<TextBox
-				placeholder={props.text.password}
-				onChangeText={text => setPass(text)}
+				placeholder={text.password}
+				onChangeText={(value) => setPass(value)}
 				value={pass}
-				secureTextEntry={true}
+				secureTextEntry
 				returnKeyType="send"
 				autoCapitalize="none"
 				autoCorrect={false}
-				ref={input => {
+				ref={(input) => {
 					passInput = input;
 				}}
 				onSubmitEditing={() => {
@@ -60,9 +52,14 @@ export default function Login(props: Props) {
 				}}
 			>
 				<LoginButtonText>
-					{props.text.login}
+					{text.login}
 				</LoginButtonText>
 			</LoginButton>
 		</Container>
 	);
 }
+
+Login.propTypes = {
+	text: PropTypes.instanceOf(Object).isRequired,
+	send: PropTypes.func.isRequired,
+};

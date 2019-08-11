@@ -1,4 +1,4 @@
-//TODO: jp language pack
+// TODO: jp language pack
 export default {
 	home: {
 		helloWorld: 'こんにちは世界！',
@@ -6,5 +6,5 @@ export default {
 	},
 	auth: {
 
-	}
+	},
 };

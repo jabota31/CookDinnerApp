@@ -1,9 +1,8 @@
 import styled from 'styled-components/native';
 
-
 export const Container = styled.View`
     align-items: center;
-    background-color: #00ab9d;
+    background-color: #00ad9f;
 	padding-top: 15;
 `;
 
@@ -14,7 +13,7 @@ export const TextBox = styled.TextInput`
     width: 75%;
 	height: 45;
     text-align: center;
-    border-color: #00ab9d;
+    border-color: #00ad9f;
     border-width: 2;
     border-radius: 20;
 `;
@@ -31,7 +30,7 @@ export const LoginButton = styled.TouchableOpacity`
     border-color: #fff;
     border-width: 1;
     border-radius: 20;
-    background-color: #00ab9d;
+    background-color: #00ad9f;
     justify-content: center;
     align-self: center;
 	margin-top: 20;
