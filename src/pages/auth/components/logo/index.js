@@ -7,10 +7,13 @@ export default function Logo() {
 	return (
 		<Container>
 			<LogoImage
-				source={logoImage}
+				source={
+					logoImage
+				}
 			/>
 			<LogoText>
-				Cook Dinner
+				Cook
+				Dinner
 			</LogoText>
 		</Container>
 	);

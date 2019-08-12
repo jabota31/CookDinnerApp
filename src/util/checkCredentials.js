@@ -1,4 +1,4 @@
-import getText from './getText';
+import i18n from '../i18n';
 
 function hasSpecialChar(pass) {
 	const format = /[ !@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]/;
@@ -11,7 +11,6 @@ function emailIsUnique(email) {
 }
 
 export default function (name, email, pass, confirmPass) {
-	const text = getText('registerCheck');
 	const result = {
 		name: '',
 		email: '',
@@ -20,24 +19,24 @@ export default function (name, email, pass, confirmPass) {
 	};
 
 	// password checks
-	if (pass.length < 8) result.pass = text.shortPassword;
+	if (pass.length < 8) result.pass = i18n.t('shortPassword');
 	else if (pass.toLowerCase() === pass
-		|| pass.toUpperCase() === pass) result.pass = text.upperAndLower;
-	else if (hasSpecialChar(pass)) result.pass = text.specialChars;
+		|| pass.toUpperCase() === pass) result.pass = i18n.t('upperAndLower');
+	else if (hasSpecialChar(pass)) result.pass = i18n.t('specialChars');
 
 	// confirm password check
-	if (pass !== confirmPass) result.confirmPass = text.dontMatch;
+	if (pass !== confirmPass) result.confirmPass = i18n.t('dontMatch');
 
 	// email checks
 	const [user, domain] = email.split('@');
 	if (!email.includes('@') || !domain.includes('.') || user.length <= 0 || domain.startsWith('.')
-		|| domain.endsWith('.')) result.email = text.emailInvalid;
-	if (!emailIsUnique(email)) result.email = text.emailTaken;
+		|| domain.endsWith('.')) result.email = i18n.t('emailInvalid');
+	if (!emailIsUnique(email)) result.email = i18n.t('emailTaken');
 
 	// empty checks
-	if (name.length <= 0) result.name = text.fieldRequired;
-	if (email.length <= 0) result.email = text.fieldRequired;
-	if (pass.length <= 0) result.pass = text.fieldRequired;
-	if (confirmPass.length <= 0) result.confirmPass = text.fieldRequired;
+	if (name.length <= 0) result.name = i18n.t('fieldRequired');
+	if (email.length <= 0) result.email = i18n.t('fieldRequired');
+	if (pass.length <= 0) result.pass = i18n.t('fieldRequired');
+	if (confirmPass.length <= 0) result.confirmPass = i18n.t('fieldRequired');
 	return result;
 }
