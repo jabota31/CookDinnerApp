@@ -1,10 +1,9 @@
 // TODO: jp language pack
 export default {
-	home: {
-		helloWorld: 'こんにちは世界！',
-		changeLanguage: '言語を変えてください',
-	},
-	auth: {
+	// home
+	helloWorld: 'こんにちは世界！',
+	changeLanguage: '言語を変えてください',
 
-	},
+	// auth
+
 };

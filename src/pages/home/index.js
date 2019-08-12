@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Text, View, Button } from 'react-native';
 import { useDispatch } from 'react-redux';
 
-import getText from '../../util/getText';
+import i18n from '../../i18n';
 
-export function navigationOptions({ navigation }) {
+export function navigationOptions() {
 	return {
 		header: null,
 	};
@@ -12,20 +12,18 @@ export function navigationOptions({ navigation }) {
 
 export default function Home() {
 	const dispatch = useDispatch();
-	const [text, setText] = useState(() => getText('home'));
 
 	function changeLanguage() {
 		dispatch({
 			type: 'CHANGE_LANG',
 		});
-		setText(getText('home'));
 	}
 
 	return (
 		<View>
-			<Text>{text.helloWorld}</Text>
+			<Text>{i18n.t('helloWorld')}</Text>
 			<Button
-				title={text.changeLanguage}
+				title={i18n.t('changeLanguage')}
 				onPress={changeLanguage}
 			/>
 		</View>

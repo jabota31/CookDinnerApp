@@ -12,6 +12,7 @@ I18n.translations = {
 	jp,
 };
 
+I18n.missingBehaviour = 'guess';
 I18n.defaultLocale = 'en-US';
 
 export default I18n;

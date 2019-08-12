@@ -17,9 +17,9 @@ loadState('config', defaultState).then((cfg) => {
 // reducer handlers
 const changeLang = (state = INITIAL_STATE, action) => {
 	let { lang } = state;
-	if (lang == 'en') lang = 'pt';
-	else if (lang == 'pt') lang = 'fr';
-	else if (lang == 'fr') lang = 'jp';
+	if (lang === 'en') lang = 'pt';
+	else if (lang === 'pt') lang = 'fr';
+	else if (lang === 'fr') lang = 'jp';
 	else lang = 'en';
 	const newState = { ...state, lang };
 	I18n.locale = lang;

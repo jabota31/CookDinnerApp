@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 
-
 import checkCredentials from '../../util/checkCredentials';
 import { register } from '../../services/cookDinnerApi';
 import {
@@ -14,23 +13,22 @@ import {
 	RegisterButtonText,
 	Indicator,
 } from './styles';
-import getText from '../../util/getText';
-import defaultImage from '../../assets/logo-circle.png';
+import i18n from '../../i18n';
+import defaultImage from '../../assets/logo-circle-white.png';
 // import { choosePic, takePic } from '../../util/getImage';
 
-let title = 'Create an account';
 export const navigationOptions = () => ({
 	// TODO: configure header baar
-	title,
+	title: i18n.t('createAccount'),
 });
 
 export default function Register() {
 	// Component variables
-	let emailInput; let passInput; let
-		confirmPassInput;
-	const [text, setText] = useState(getText('register'));
+	let emailInput;
+	let passInput;
+	let confirmPassInput;
 	const [image, setImage] = useState(null);
-	title = text.createAccount;
+
 	const [state, setState] = useState({
 		email: '',
 		name: '',
@@ -74,7 +72,7 @@ export default function Register() {
 				</AvatarContainer>
 
 				<TextBox
-					placeholder={text.name}
+					placeholder={i18n.t('name')}
 					onChangeText={(name) => setState({ ...state, name })}
 					returnKeyType="next"
 					autoCapitalize="none"
@@ -91,7 +89,7 @@ export default function Register() {
 				</UnderText>
 
 				<TextBox
-					placeholder={text.email}
+					placeholder={i18n.t('email')}
 					onChangeText={(email) => setState({ ...state, email })}
 					returnKeyType="next"
 					autoCapitalize="none"
@@ -111,7 +109,7 @@ export default function Register() {
 				</UnderText>
 
 				<TextBox
-					placeholder={text.password}
+					placeholder={i18n.t('password')}
 					onChangeText={(pass) => setState({ ...state, pass })}
 					value={state.pass}
 					secureTextEntry
@@ -131,7 +129,7 @@ export default function Register() {
 				</UnderText>
 
 				<TextBox
-					placeholder={text.confirmPassword}
+					placeholder={i18n.t('confirmPassword')}
 					onChangeText={(confirmPass) => setState({ ...state, confirmPass })}
 					value={state.confirmPass}
 					secureTextEntry
@@ -149,7 +147,7 @@ export default function Register() {
 				</UnderText>
 				<RegisterButton onPress={send}>
 					<RegisterButtonText>
-						{text.register}
+						{i18n.t('register')}
 					</RegisterButtonText>
 				</RegisterButton>
 			</Content>

@@ -1,25 +1,31 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
+import { Keyboard } from 'react-native';
 import {
 	Indicator,
 	Container,
 	NoAccountButton,
 	NoAccountText,
 	Content,
+	TextBox,
+	LoginContainer,
+	LoginButton,
+	LoginButtonText,
 } from './styles';
 import Logo from './components/logo';
 import { login } from '../../services/cookDinnerApi';
-import getText from '../../util/getText';
-import Login from './components/login';
+import i18n from '../../i18n';
 
 export default function Auth({ navigation }) {
 	const [loading, setLoading] = useState(false);
-	const [text] = useState(getText('auth'));
+	const [user, setUser] = useState('');
+	const [pass, setPass] = useState('');
+	let passInput;
 
-	async function send(user, pass) {
+	async function send(username, password) {
 		setLoading(true);
-		const response = await login(user, pass);
+		const response = await login(username, password);
 		setLoading(false);
 		return response;
 	}
@@ -35,13 +41,50 @@ export default function Auth({ navigation }) {
 				<Logo />
 				{loading ? <Indicator /> : null}
 
-				<Login
-					send={send}
-					text={text}
-				/>
+				<LoginContainer>
+					<TextBox
+						placeholder={i18n.t('email')}
+						onChangeText={(value) => setUser(value)}
+						returnKeyType="next"
+						autoCapitalize="none"
+						value={user}
+						autoCorrect={false}
+						onSubmitEditing={() => {
+							passInput.focus();
+						}}
+						blurOnSubmit={false}
+					/>
+
+					<TextBox
+						placeholder={i18n.t('password')}
+						onChangeText={(value) => setPass(value)}
+						value={pass}
+						secureTextEntry
+						returnKeyType="send"
+						autoCapitalize="none"
+						autoCorrect={false}
+						ref={(input) => {
+							passInput = input;
+						}}
+						onSubmitEditing={() => {
+							send(user, pass);
+						}}
+					/>
+
+					<LoginButton
+						onPress={() => {
+							Keyboard.dismiss();
+							send(user, pass);
+						}}
+					>
+						<LoginButtonText>
+							{i18n.t('login')}
+						</LoginButtonText>
+					</LoginButton>
+				</LoginContainer>
 
 				<NoAccountButton onPress={openRegister}>
-					<NoAccountText>{text.noAccount}</NoAccountText>
+					<NoAccountText>{i18n.t('noAccount')}</NoAccountText>
 				</NoAccountButton>
 			</Content>
 		</Container>
